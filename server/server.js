@@ -7,6 +7,8 @@ var {Todo} = require('./models/todo');
 var {User} = require ('./models/user');      //all using es6 distructuring.
 
 var app = express();
+//Deploying to Heroku where by everywhere there is 3000 will be changed to port
+const port = process.env.PORT || 3000;
 
 //configuring the middleware
 app.use(bodyParser.json());
@@ -53,7 +55,7 @@ app.get('/todos', (req, res) => {
   });
 
 app.listen(3000, () => {
-    console.log('Started on port 3000');
+    console.log(`Started on port ${port}`);
 });
 
 module.exports = {app};
